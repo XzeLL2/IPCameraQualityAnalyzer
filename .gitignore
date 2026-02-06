@@ -1,0 +1,28 @@
+# Build directories
+build/
+Debug/
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+
+# CMake
+CMakeLists.txt.user
+
+# Backup files
+*.bak
+*.backup
+*.orig
+*.rej
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+debug.log
