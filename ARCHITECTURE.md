@@ -23,58 +23,58 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    IP Camera Quality Analyzer                          │
+│                    IP Camera Quality Analyzer                           │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                    Application Layer                             │   │
-│  │  ┌──────────────────┐                                            │   │
-│  │  │     main.cpp     │ • Инициализация Qt Application            │   │
-│  │  │                  │ • Парсинг аргументов командной строки     │   │
-│  │  │                  │ • Создание MainWindow                     │   │
-│  │  └──────────────────┘                                            │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │                    Application Layer                            │    │
+│  │  ┌──────────────────┐                                           │    │
+│  │  │     main.cpp     │ • Инициализация Qt Application            │    │
+│  │  │                  │ • Парсинг аргументов командной строки     │    │ 
+│  │  │                  │ • Создание MainWindow                     │    │
+│  │  └──────────────────┘                                           │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
 │                                  │                                      │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                    Presentation Layer                           │   │
-│  │  ┌──────────────────┐                                            │   │
-│  │  │   MainWindow     │ • GUI приложения                         │   │
-│  │  │   (Qt Widgets)   │ • Управление вкладками                   │   │
-│  │  │                  │ • Отображение метрик                      │   │
-│  │  └──────────────────┘                                            │   │
-│  │           ▲                      │                               │   │
-│  │           │       signals        │                               │   │
-│  │           └──────────────────────┘                               │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │                    Presentation Layer                           │    │
+│  │  ┌──────────────────┐                                           │    │
+│  │  │   MainWindow     │ • GUI приложения                          │    │
+│  │  │   (Qt Widgets)   │ • Управление вкладками                    │    │
+│  │  │                  │ • Отображение метрик                      │    │
+│  │  └──────────────────┘                                           │    │
+│  │           ▲                      │                              │    │
+│  │           │       signals        │                              │    │
+│  │           └──────────────────────┘                              │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
 │                                  │                                      │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                   Business Logic Layer                           │   │
-│  │  ┌──────────────────┐  ┌──────────────────────────────────┐      │   │
-│  │  │   CameraWorker   │  │   ImageQualityAnalyzer         │      │   │
-│  │  │   (per camera)   │  │   (shared)                      │      │   │
-│  │  └──────────────────┘  └──────────────────────────────────┘      │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │                   Business Logic Layer                          │    │
+│  │  ┌──────────────────┐  ┌──────────────────────────────────┐     │    │
+│  │  │   CameraWorker   │  │   ImageQualityAnalyzer         │       │    │
+│  │  │   (per camera)   │  │   (shared)                      │      │    │
+│  │  └──────────────────┘  └──────────────────────────────────┘     │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
 │                                  │                                      │
-│  ┌─────────────────────────────────────────────────────────────────┐   │
-│  │                     Data Access Layer                           │   │
-│  │  ┌──────────────────────────────────────────────────────────┐   │   │
-│  │  │              cv::VideoCapture (OpenCV)                   │   │   │
-│  │  │              RTSP Protocol                                │   │   │
-│  │  └──────────────────────────────────────────────────────────┘   │   │
-│  └─────────────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │                     Data Access Layer                           │    │
+│  │  ┌──────────────────────────────────────────────────────────┐   │    │
+│  │  │              cv::VideoCapture (OpenCV)                   │   │    │
+│  │  │              RTSP Protocol                               │   │    │
+│  │  └──────────────────────────────────────────────────────────┘   │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Технологический стек
 
-| Уровень | Технология | Назначение |
-|---------|------------|------------|
-| UI Framework | Qt5 Widgets | Графический интерфейс |
-| Video Processing | OpenCV 4.x | Захват и обработка видео |
-| Concurrency | QThread + Signals/Slots | Многопоточность |
-| Build System | CMake | Сборка проекта |
-| Standard | C++17 | Язык разработки |
+| Уровень          | Технология              | Назначение               |
+|------------------|-------------------------|--------------------------|
+| UI Framework     | Qt5 Widgets             | Графический интерфейс    |
+| Video Processing | OpenCV 4.x              | Захват и обработка видео |
+| Concurrency      | QThread + Signals/Slots | Многопоточность          |
+| Build System     | CMake                   | Сборка проекта           |
+| Standard | C++17 | Язык разработки         |                          |
 
 ---
 
@@ -88,46 +88,46 @@
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
 │  Main Thread (UI)                                                       │
-│  ═══════════════════                                                     │
+│  ═══════════════════                                                    │
 │  • Обработка событий Qt                                                 │
 │  • Отрисовка GUI                                                        │
 │  • Прием сигналов от workers                                            │
 │                                                                         │
-│         ▲                                                                │
+│         ▲                                                               │
 │         │ Qt::QueuedConnection                                          │
 │         │ (асинхронная доставка)                                        │
-│         ▼                                                                │
-│  ┌──────────────────────────────────────────────────────────┐          │
-│  │  Worker Thread #1                                        │          │
-│  │  ═══════════════════                                    │          │
-│  │  • CameraWorker instance                                 │          │
-│  │  • RTSP connection                                       │          │
-│  │  • Frame processing                                      │          │
-│  │  • Quality analysis                                      │          │
-│  │                                                          │          │
-│  │  ┌────────────────┐    ┌────────────────┐              │          │
-│  │  │ VideoCapture   │───▶│ QualityAnalyzer│              │          │
-│  │  └────────────────┘    └────────────────┘              │          │
-│  └──────────────────────────────────────────────────────────┘          │
+│         ▼                                                               │
+│  ┌──────────────────────────────────────────────────────────┐           │
+│  │  Worker Thread #1                                        │           │
+│  │  ═══════════════════                                     │           │
+│  │  • CameraWorker instance                                 │           │
+│  │  • RTSP connection                                       │           │
+│  │  • Frame processing                                      │           │
+│  │  • Quality analysis                                      │           │
+│  │                                                          │           │
+│  │  ┌────────────────┐    ┌────────────────┐                │           │
+│  │  │ VideoCapture   │──▶│ QualityAnalyzer│                │           │
+│  │  └────────────────┘    └────────────────┘                │           │
+│  └──────────────────────────────────────────────────────────┘           │
 │                                                                         │
-│  ┌──────────────────────────────────────────────────────────┐          │
-│  │  Worker Thread #2                                        │          │
-│  │  ═══════════════════                                    │          │
-│  │  • CameraWorker instance                                 │          │
-│  │  • RTSP connection                                       │          │
-│  │  • Frame processing                                      │          │
-│  │  • Quality analysis                                      │          │
-│  │                                                          │          │
-│  │  ┌────────────────┐    ┌────────────────┐              │          │
-│  │  │ VideoCapture   │───▶│ QualityAnalyzer│              │          │
-│  │  └────────────────┘    └────────────────┘              │          │
-│  └──────────────────────────────────────────────────────────┘          │
+│  ┌──────────────────────────────────────────────────────────┐           │
+│  │  Worker Thread #2                                        │           │
+│  │  ═══════════════════                                     │           │
+│  │  • CameraWorker instance                                 │           │
+│  │  • RTSP connection                                       │           │
+│  │  • Frame processing                                      │           │
+│  │  • Quality analysis                                      │           │
+│  │                                                          │           │
+│  │  ┌────────────────┐    ┌────────────────┐                │           │
+│  │  │ VideoCapture   │──▶│ QualityAnalyzer│                │           │
+│  │  └────────────────┘    └────────────────┘                │           │
+│  └──────────────────────────────────────────────────────────┘           │
 │                                                                         │
-│  ┌──────────────────────────────────────────────────────────┐          │
-│  │  Worker Thread #N                                        │          │
-│  │  ═══════════════════                                    │          │
-│  │  ...                                                     │          │
-│  └──────────────────────────────────────────────────────────┘          │
+│  ┌──────────────────────────────────────────────────────────┐           │
+│  │  Worker Thread #N                                        │           │
+│  │  ═══════════════════                                     │           │
+│  │  ...                                                     │           │
+│  └──────────────────────────────────────────────────────────┘           │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
@@ -176,7 +176,7 @@ std::atomic<bool> m_connected{false};
          │                               │
          ▼                               ▼
     ┌─────────┐                    ┌─────────┐
-    │ STOPPED │ ───────────────▶ │ RUNNING │
+    │ STOPPED │ ───────────────▶  │ RUNNING │
     └─────────┐ ◀───────────────  └─────────┘
          │              │               │
          │              ▼               │
@@ -279,29 +279,29 @@ connectionLost()       ───────────────▶  handleC
 ┌─────────────────────────────────────────┐
 │             MainWindow                  │
 ├─────────────────────────────────────────┤
-│ - m_centralWidget: QWidget*            │
-│ - m_cameraTabs: QTabWidget*            │
-│ - m_rtspInput: QLineEdit*              │
-│ - m_addButton: QPushButton*            │
-│ - m_removeButton: QPushButton*         │
-│ - m_statusBar: QStatusBar*             │
-│ - m_activityTimer: QTimer*             │
-│                                          │
-│ - m_cameraWorkers: QMap<int, Worker*>  │
-│ - m_cameraThreads: QMap<int, QThread*> │
-│ - m_cameraUrls: QMap<int, QString>     │
-│ - m_frameLabels: QMap<int, QLabel*>    │
-│ - m_scoreLabels: QMap<int, QLabel*>    │
-│ - m_nextCameraId: int                  │
+│ - m_centralWidget: QWidget*             │
+│ - m_cameraTabs: QTabWidget*             │
+│ - m_rtspInput: QLineEdit*               │
+│ - m_addButton: QPushButton*             │
+│ - m_removeButton: QPushButton*          │
+│ - m_statusBar: QStatusBar*              │
+│ - m_activityTimer: QTimer*              │
+│                                         │
+│ - m_cameraWorkers: QMap<int, Worker*>   │
+│ - m_cameraThreads: QMap<int, QThread*>  │
+│ - m_cameraUrls: QMap<int, QString>      │
+│ - m_frameLabels: QMap<int, QLabel*>     │
+│ - m_scoreLabels: QMap<int, QLabel*>     │
+│ - m_nextCameraId: int                   │
 ├─────────────────────────────────────────┤
 │ + MainWindow(QWidget* = nullptr)        │
 │ + ~MainWindow()                         │
-│                                          │
+│                                         │
 │ + setRtspInput(const QString&)          │
 │ + showAbout()                           │
-│                                          │
+│                                         │
 │ # closeEvent(QCloseEvent*)              │
-│                                          │
+│                                         │
 │ - addCamera() [slot]                    │
 │ - removeCamera() [slot]                 │
 │ - updateFrame(int, QImage) [slot]       │
@@ -309,9 +309,9 @@ connectionLost()       ───────────────▶  handleC
 │ - handleConnectionStatus(int, bool,     │
 │   QString) [slot]                       │
 │ - handleError(int, QString) [slot]      │
-│ - handleConnectionLost(int) [slot]     │
-│ - updateActivityTimer() [slot]         │
-│                                          │
+│ - handleConnectionLost(int) [slot]      │
+│ - updateActivityTimer() [slot]          │
+│                                         │
 │ - setupUi()                             │
 │ - addCameraTab(int, QString)            │
 │ - removeCameraTab(int)                  │
@@ -323,12 +323,12 @@ connectionLost()       ───────────────▶  handleC
 
 #### Основные методы
 
-| Метод | Описание | Сложность |
-|-------|----------|-----------|
-| `addCamera()` | Добавляет новую камеру | O(1) |
-| `removeCamera()` | Удаляет текущую камеру | O(1) |
-| `updateFrame()` | Обновляет отображение кадра | O(1) |
-| `updateQualityResult()` | Обновляет метрики качества | O(1) |
+| Метод                   | Описание                    |
+|-------------------------|-----------------------------|
+| `addCamera()`           | Добавляет новую камеру      |
+| `removeCamera()`        | Удаляет текущую камеру      |
+| `updateFrame()`         | Обновляет отображение кадра |
+| `updateQualityResult()` | Обновляет метрики качества  |
 
 #### Инициализация GUI
 
@@ -440,40 +440,40 @@ void MainWindow::updateQualityResult(int cameraId, const QualityResult& result)
 ┌─────────────────────────────────────────┐
 │             CameraWorker                │
 ├─────────────────────────────────────────┤
-│ - m_rtspUrl: QString                   │
-│ - m_videoCapture: cv::VideoCapture    │
-│ - m_qualityAnalyzer: ImageQuality*     │
-│ - m_frameTimer: QTimer*                │
-│ - m_lastQualityResult: QualityResult   │
-│                                          │
-│ - m_capturing: std::atomic<bool>       │
-│ - m_connected: std::atomic<bool>       │
-│ - m_reconnectAttempts: int             │
-│ - m_frameSkipCounter: int              │
-│                                          │
+│ - m_rtspUrl: QString                    │
+│ - m_videoCapture: cv::VideoCapture      │
+│ - m_qualityAnalyzer: ImageQuality*      │
+│ - m_frameTimer: QTimer*                 │
+│ - m_lastQualityResult: QualityResult    │
+│                                         │
+│ - m_capturing: std::atomic<bool>        │
+│ - m_connected: std::atomic<bool>        │
+│ - m_reconnectAttempts: int              │
+│ - m_frameSkipCounter: int               │
+│                                         │
 │ - MAX_RECONNECT_ATTEMPTS: const int     │
-│ - FRAME_INTERVAL_MS: const int         │
-│ - QUALITY_ANALYSIS_SKIP: const int     │
+│ - FRAME_INTERVAL_MS: const int          │
+│ - QUALITY_ANALYSIS_SKIP: const int      │
 ├─────────────────────────────────────────┤
-│ + CameraWorker(const QString&, QObject*│
+│ + CameraWorker(const QString&, QObject* │
 │   = nullptr)                            │
 │ + ~CameraWorker()                       │
-│                                          │
+│                                         │
 │ + startCapture()                        │
 │ + stopCapture()                         │
 │ + isConnected(): bool                   │
 │ + getRtspUrl(): QString                 │
 │ + getLastQualityResult(): QualityResult │
-│                                          │
+│                                         │
 │ # processFrame() [slot]                 │
-│                                          │
+│                                         │
 │ - initializeCapture(): bool             │
 │ - cleanupCapture()                      │
 │ - tryReconnect()                        │
 ├─────────────────────────────────────────┤
 │ SIGNALS:                                │
 │ - frameReady(const QImage&)             │
-│ - qualityResultReady(const               │
+│ - qualityResultReady(const              │
 │   QualityResult&)                       │
 │ - connectionStatusChanged(bool,         │
 │   const QString&)                       │
@@ -606,27 +606,27 @@ void CameraWorker::tryReconnect()
 │        ImageQualityAnalyzer             │
 ├─────────────────────────────────────────┤
 │ WEIGHTS:                                │
-│ - NOISE_WEIGHT: const double = 0.25    │
-│ - CONTRAST_WEIGHT: const double = 0.25 │
-│ - SHARPNESS_WEIGHT: const double = 0.35│
+│ - NOISE_WEIGHT: const double = 0.25     │
+│ - CONTRAST_WEIGHT: const double = 0.25  │
+│ - SHARPNESS_WEIGHT: const double = 0.35 │
 │ - OVEREXPOSED_WEIGHT: const double      │
-│   = 0.15                               │
-│                                          │
+│   = 0.15                                │
+│                                         │
 │ THRESHOLDS:                             │
-│ - OVEREXPOSED_THRESHOLD: const int     │
-│   = 245                                │
+│ - OVEREXPOSED_THRESHOLD: const int      │
+│   = 245                                 │
 │ - IDEAL_CONTRAST: const double = 160.0  │
-│ - IDEAL_SHARPNESS: const double = 400.0│
-│ - MAX_NOISE_VARIANCE: const double     │
-│   = 50.0                               │
+│ - IDEAL_SHARPNESS: const double = 400.0 │
+│ - MAX_NOISE_VARIANCE: const double      │
+│   = 50.0                                │
 ├─────────────────────────────────────────┤
-│ + ImageQualityAnalyzer(QObject* =      │
+│ + ImageQualityAnalyzer(QObject* =       │
 │   nullptr)                              │
-│ + ~ImageQualityAnalyzer()              │
-│                                          │
+│ + ~ImageQualityAnalyzer()               │
+│                                         │
 │ + analyze(const cv::Mat&): QualityResult│
-│ + matToQImage(const cv::Mat&): QImage  │
-│                                          │
+│ + matToQImage(const cv::Mat&): QImage   │
+│                                         │
 │ # calculateNoiseScore(const cv::Mat&)   │
 │ # calculateContrastScore(const          │
 │   cv::Mat&)                             │
@@ -860,41 +860,41 @@ deactivate CameraWorker
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│              Расчет шумности изображения                         │
+│              Расчет шумности изображения                        │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  ВХОД:  frame (cv::Mat, grayscale)                               │
+│  ВХОД:  frame (cv::Mat, grayscale)                              │
 │                                                                 │
 │  ШАГ 1: Gaussian Blur                                           │
 │  ─────────────────────                                          │
-│  blurred = GaussianBlur(frame, 5×5, sigma=0)                     │
+│  blurred = GaussianBlur(frame, 5×5, sigma=0)                    │
 │                                                                 │
 │         frame                    blurred                        │
-│    ┌───────────┐            ┌───────────┐                      │
-│    │ ▓▓▓▓▓▓▓▓▓ │            │ ▒▒▒▒▒▒▒▒▒ │                      │
-│    │ ▓▓▓▓▓▓▓▓▓ │   blur    │ ▒▒▒▒▒▒▒▒▒ │                      │
-│    │ ▓▓▓▓▓▓▓▓▓ │ ────────▶ │ ▒▒▒▒▒▒▒▒▒ │                      │
-│    │ ▓▓▓▓▓▓▓▓▓ │            │ ▒▒▒▒▒▒▒▒▒ │                      │
-│    └───────────┘            └───────────┘                      │
+│    ┌───────────┐            ┌───────────┐                       │
+│    │ ▓▓▓▓▓▓▓▓▓ │            │ ▒▒▒▒▒▒▒▒▒ │                       │
+│    │ ▓▓▓▓▓▓▓▓▓ │   blur     │ ▒▒▒▒▒▒▒▒▒ │                       │
+│    │ ▓▓▓▓▓▓▓▓▓ │ ────────▶ │ ▒▒▒▒▒▒▒▒▒ │                       │
+│    │ ▓▓▓▓▓▓▓▓▓ │            │ ▒▒▒▒▒▒▒▒▒ │                       │
+│    └───────────┘            └───────────┘                       │
 │                                                                 │
-│  ШАГ 2: Разница изображений                                      │
+│  ШАГ 2: Разница изображений                                     │
 │  ─────────────────────────                                      │
-│  diff = |frame - blurred|                                        │
+│  diff = |frame - blurred|                                       │
 │                                                                 │
 │         frame          blurred           diff                   │
-│    ┌───────────┐    ┌───────────┐    ┌───────────┐             │
-│    │ ▓▓▓▓▓▓▓▓▓ │    │ ▒▒▒▒▒▒▒▒▒ │    │ █ █ █ █ █ │             │
-│    │ ▓▓▓▓▓▓▓▓▓ │ ───│ ▒▒▒▒▒▒▒▒▒ │───▶│ █ █ █ █ █ │             │
-│    │ ▓▓▓▓▓▓▓▓▓ │    │ ▒▒▒▒▒▒▒▒▒ │    │ █ █ █ █ █ │             │
-│    └───────────┘    └───────────┘    └───────────┘             │
+│    ┌───────────┐    ┌───────────┐    ┌───────────┐              │
+│    │ ▓▓▓▓▓▓▓▓▓ │    │ ▒▒▒▒▒▒▒▒▒ │    │ █ █ █ █ █ │              │
+│    │ ▓▓▓▓▓▓▓▓▓ │ ───│ ▒▒▒▒▒▒▒▒▒ │──▶│ █ █ █ █ █ │              │
+│    │ ▓▓▓▓▓▓▓▓▓ │    │ ▒▒▒▒▒▒▒▒▒ │    │ █ █ █ █ █ │              │
+│    └───────────┘    └───────────┘    └───────────┘              │
 │                                                                 │
-│  ШАГ 3: Среднее значение разницы                                 │
+│  ШАГ 3: Среднее значение разницы                                │
 │  ──────────────────────────────                                 │
-│  noiseLevel = mean(diff)                                         │
+│  noiseLevel = mean(diff)                                        │
 │                                                                 │
 │  ШАГ 4: Расчет оценки                                           │
-│  ─────────────────────                                           │
-│  noiseScore = 100 - (noiseLevel / MAX_NOISE_VARIANCE) × 100    │
+│  ─────────────────────                                          │
+│  noiseScore = 100 - (noiseLevel / MAX_NOISE_VARIANCE) × 100     │
 │                                                                 │
 │  ВЫХОД: noiseScore (0-100)                                      │
 │                                                                 │
@@ -907,36 +907,36 @@ deactivate CameraWorker
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│              Расчет контрастности изображения                    │
+│              Расчет контрастности изображения                   │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  ВХОД:  frame (cv::Mat, grayscale)                              │
 │                                                                 │
-│  ШАГ 1: Поиск min/max значений                                   │
-│  ────────────────────────────────                                │
+│  ШАГ 1: Поиск min/max значений                                  │
+│  ────────────────────────────────                               │
 │  minVal, maxVal = minMaxLoc(frame)                              │
 │                                                                 │
-│         pixel values                                             │
-│    ┌───────────────────────────┐                                 │
-│    │  10  45  78  120  200    │                                 │
-│    │  15  50  85  130  210    │                                 │
-│    │  ...                     │                                 │
-│    └───────────────────────────┘                                 │
-│              │              │                                    │
-│              ▼              ▼                                    │
+│         pixel values                                            │
+│    ┌───────────────────────────┐                                │
+│    │  10  45  78  120  200     │                                │
+│    │  15  50  85  130  210     │                                │
+│    │  ...                      │                                │
+│    └───────────────────────────┘                                │
+│              │              │                                   │
+│              ▼              ▼                                   │
 │         minVal=10       maxVal=250                              │
 │                                                                 │
-│  ШАГ 2: Расчет диапазона                                         │
+│  ШАГ 2: Расчет диапазона                                        │
 │  ────────────────────                                           │
-│  contrastRange = maxVal - minVal                                 │
+│  contrastRange = maxVal - minVal                                │
 │               = 250 - 10 = 240                                  │
 │                                                                 │
 │  ШАГ 3: Расчет оценки                                           │
 │  ────────────────────                                           │
-│  contrastScore = (contrastRange / IDEAL_CONTRAST) × 100        │
-│                = (240 / 160) × 100 = 150 → 100 (обрезано)      │
+│  contrastScore = (contrastRange / IDEAL_CONTRAST) × 100         │
+│                = (240 / 160) × 100 = 150 → 100 (обрезано)       │
 │                                                                 │
-│  Примечание: Если contrastRange > 250,                         │
+│  Примечание: Если contrastRange > 250,                          │
 │  применяется штраф 20%                                          │
 │                                                                 │
 │  ВЫХОД: contrastScore (0-100)                                   │
@@ -948,20 +948,20 @@ deactivate CameraWorker
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│              Расчет резкости изображения                         │
+│              Расчет резкости изображения                        │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
 │  ВХОД:  frame (cv::Mat, grayscale)                              │
 │                                                                 │
 │  ШАГ 1: Применение Laplacian                                    │
 │  ───────────────────────────                                    │
-│  laplacian = Laplacian(frame, CV_64F, kernel=3)               │
+│  laplacian = Laplacian(frame, CV_64F, kernel=3)                 │
 │                                                                 │
 │    ┌─────────────────┐                                          │
-│    │   ▓▓▓▓▓▓▓▓▓▓▓   │  Laplacian                              │
-│    │   ▓▓▓▓▓▓▓▓▓▓▓   │ ───────▶  ┌─────────────────┐             │
-│    │   ▓▓▓▓▓▓▓▓▓▓▓   │          │ ░░░░█░░█░░░█░░ │             │
-│    │   ▓▓▓▓▓▓▓▓▓▓▓   │          │ ░░░░█░░█░░░█░░ │             │
+│    │   ▓▓▓▓▓▓▓▓▓▓▓   │  Laplacian                               │
+│    │   ▓▓▓▓▓▓▓▓▓▓▓   │ ───────▶┌─────────────────┐             │
+│    │   ▓▓▓▓▓▓▓▓▓▓▓   │          │ ░░░░█░░█░░░█░░  │             │
+│    │   ▓▓▓▓▓▓▓▓▓▓▓   │          │ ░░░░█░░█░░░█░░  │             │
 │    └─────────────────┘          └─────────────────┘             │
 │                                                                 │
 │  ШАГ 2: Расчет дисперсии Laplacian                              │
@@ -971,10 +971,10 @@ deactivate CameraWorker
 │                                                                 │
 │  ШАГ 3: Расчет оценки                                           │
 │  ────────────────────                                           │
-│  sharpnessScore = (laplacianVariance / IDEAL_SHARPNESS) × 100│
+│  sharpnessScore = (laplacianVariance / IDEAL_SHARPNESS) × 100   │
 │                                                                 │
-│  ИНТЕРПРЕТАЦИЯ:                                                  │
-│  • Высокая дисперсия → четкие края → высокая резкость          │
+│  ИНТЕРПРЕТАЦИЯ:                                                 │
+│  • Высокая дисперсия → четкие края → высокая резкость           │
 │  • Низкая дисперсия → размытое изображение                      │
 │                                                                 │
 │  ВЫХОД: sharpnessScore (0-100)                                  │
@@ -992,37 +992,37 @@ deactivate CameraWorker
 │  ВХОД:  frame (cv::Mat, grayscale)                              │
 │                                                                 │
 │  ШАГ 1: Бинаризация по порогу                                   │
-│  ───────────────────────────────                                 │
-│  threshold = OVEREXPOSED_THRESHOLD = 245                       │
-│  mask = (frame > threshold) ? 255 : 0                          │
+│  ───────────────────────────────                                │
+│  threshold = OVEREXPOSED_THRESHOLD = 245                        │
+│  mask = (frame > threshold) ? 255 : 0                           │
 │                                                                 │
-│         frame                                                     │
-│    ┌───────────────────┐                                         │
-│    │ 100 150 200 245 255│                                         │
-│    │ 120 180 220 250 255│                                         │
-│    │ ...               │                                         │
-│    └───────────────────┘                                         │
-│              │                                                   │
+│         frame                                                   │
+│    ┌────────────────────┐                                       │
+│    │ 100 150 200 245 255│                                       │
+│    │ 120 180 220 250 255│                                       │
+│    │ ...                │                                       │
+│    └────────────────────┘                                       │
+│              │                                                  │
 │              ▼ threshold = 245                                  │
-│    ┌───────────────────┐                                         │
-│    │  0   0   0   1  1 │  (1 = пересвечен)                       │
-│    │  0   0   0   1  1 │                                         │
-│    └───────────────────┘                                         │
+│    ┌───────────────────┐                                        │
+│    │  0   0   0   1  1 │  (1 = пересвечен)                      │
+│    │  0   0   0   1  1 │                                        │
+│    └───────────────────┘                                        │
 │                                                                 │
 │  ШАГ 2: Подсчет пересвеченных пикселей                          │
-│  ─────────────────────────────────                               │
-│  overexposedCount = countNonZero(mask)                         │
+│  ─────────────────────────────────                              │
+│  overexposedCount = countNonZero(mask)                          │
 │                                                                 │
 │  ШАГ 3: Расчет процента                                         │
-│  ─────────────────────────                                       │
-│  totalPixels = frame.rows × frame.cols                         │
-│  overexposedPercent = (overexposedCount / totalPixels) × 100 │
+│  ─────────────────────────                                      │
+│  totalPixels = frame.rows × frame.cols                          │
+│  overexposedPercent = (overexposedCount / totalPixels) × 100    │
 │                                                                 │
-│  ШАГ 4: Инверсия для оценки                                      │
+│  ШАГ 4: Инверсия для оценки                                     │
 │  ──────────────────────────                                     │
-│  overexposedScore = 100 - min(100, overexposedPercent × 2)    │
+│  overexposedScore = 100 - min(100, overexposedPercent × 2)      │
 │                                                                 │
-│  ВЫХОД: overexposedPercent (0-100), overexposedScore           │
+│  ВЫХОД: overexposedPercent (0-100), overexposedScore            │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -1038,29 +1038,29 @@ deactivate CameraWorker
 │                    Error Handling System                        │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │                    Критические ошибки                    │   │
-│  │  • Ошибка инициализации RTSP                             │   │
-│  │  • Превышено время ожидания                              │   │
-│  │  • Ошибка декодирования                                  │   │
-│  │  Обработка: Переподключение, затем завершение           │   │
-│  └─────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │                    Критические ошибки                   │    │
+│  │  • Ошибка инициализации RTSP                            │    │
+│  │  • Превышено время ожидания                             │    │
+│  │  • Ошибка декодирования                                 │    │
+│  │  Обработка: Переподключение, затем завершение           │    │
+│  └─────────────────────────────────────────────────────────┘    │
 │                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │                    Предупреждения                       │   │
-│  │  • Пропущенный кадр                                     │   │
-│  │  • Нестабильное соединение                               │   │
-│  │  • Высокая задержка                                     │   │
-│  │  Обработка: Логирование, продолжение работы             │   │
-│  └─────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │                    Предупреждения                       │    │
+│  │  • Пропущенный кадр                                     │    │
+│  │  • Нестабильное соединение                              │    │
+│  │  • Высокая задержка                                     │    │
+│  │  Обработка: Логирование, продолжение работы             │    │
+│  └─────────────────────────────────────────────────────────┘    │
 │                                                                 │
-│  ┌─────────────────────────────────────────────────────────┐   │
-│  │                    Информационные                        │   │
-│  │  • Успешное подключение                                 │   │
-│  │  • Успешное переподключение                             │   │
-│  │  • Завершение анализа                                    │   │
-│  │  Обработка: Логирование                                 │   │
-│  └─────────────────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────────────────┐    │
+│  │                    Информационные                       │    │
+│  │  • Успешное подключение                                 │    │
+│  │  • Успешное переподключение                             │    │
+│  │  • Завершение анализа                                   │    │
+│  │  Обработка: Логирование                                 │    │
+│  └─────────────────────────────────────────────────────────┘    │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -1072,18 +1072,18 @@ deactivate CameraWorker
 │              Стратегия экспоненциальной задержки                │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │
-│  attempt #1: wait 1 second                                     │
-│  attempt #2: wait 2 seconds                                    │
-│  attempt #3: wait 3 seconds                                    │
-│  attempt #4: wait 4 seconds                                    │
-│  attempt #5: wait 5 seconds                                    │
+│  attempt #1: wait 1 second                                      │
+│  attempt #2: wait 2 seconds                                     │
+│  attempt #3: wait 3 seconds                                     │
+│  attempt #4: wait 4 seconds                                     │
+│  attempt #5: wait 5 seconds                                     │
 │                                                                 │
-│  Формула: wait_ms = 1000 × attempt_number                      │
+│  Формула: wait_ms = 1000 × attempt_number                       │
 │                                                                 │
 │  После 5 неудачных попыток:                                     │
-│  → Остановка захвата                                           │
-│  → Уведомление пользователя                                    │
-│  → Ожидание ручного перезапуска                                │
+│  → Остановка захвата                                            │
+│  → Уведомление пользователя                                     │
+│  → Ожидание ручного перезапуска                                 │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -1094,19 +1094,19 @@ deactivate CameraWorker
 
 ### Временные затраты
 
-| Операция | Время | Примечание |
-|----------|-------|------------|
-| RTSP захват кадра | ~5 мс | Зависит от сети |
-| Декодирование | ~10 мс | Зависит от кодека |
-| Конвертация в grayscale | ~1 мс | |
-| Анализ шумности | ~2 мс | Gaussian blur |
-| Анализ контраста | <1 мс | min/max |
-| Анализ резкости | ~5 мс | Laplacian |
-| Анализ пересветов | ~2 мс | Threshold |
-| Конвертация в QImage | ~2 мс | |
-| GUI update | ~3 мс | |
-| **Total per frame** | **~30 мс** | ~33 FPS |
-| **Quality analysis** | **~10 мс** | Каждый 10-й кадр |
+| Операция                | Время      | Примечание        |
+|-------------------------|------------|-------------------|
+| RTSP захват кадра       | ~5 мс      | Зависит от сети   |
+| Декодирование           | ~10 мс     | Зависит от кодека |
+| Конвертация в grayscale | ~1 мс      |                   |
+| Анализ шумности         | ~2 мс      | Gaussian blur     |
+| Анализ контраста        | <1 мс      | min/max           |
+| Анализ резкости         | ~5 мс      | Laplacian         |
+| Анализ пересветов       | ~2 мс      | Threshold         |
+| Конвертация в QImage    | ~2 мс      |                   |
+| GUI update              | ~3 мс      |                   |
+| **Total per frame**     | **~30 мс** | ~33 FPS           |
+| **Quality analysis**    | **~10 мс** | Каждый 10-й кадр  |
 
 ### Оптимизации
 
@@ -1158,17 +1158,17 @@ connect(worker, &CameraWorker::frameReady,
 │                                                                 │
 │  Количество камер vs FPS:                                       │
 │                                                                 │
-│  10 │                                      ●                   │
-│   8 │                                 ●                       │
-│   6 │                            ●                            │
-│   4 │                       ●                                 │
-│   2 │           ●                                          │
-│   0 │──●──────────────────────────────────────────────────    │
-│       1    2    3    4    5    6    7    8    9   10          │
-│                     Количество камер                             │
+│  10 │                                      ●                    │
+│   8 │                                 ●                         │
+│   6 │                            ●                              │
+│   4 │                       ●                                   │
+│   2 │           ●                                               │
+│   0 │──●──────────────────────────────────────────────────      │
+│       1    2    3    4    5    6    7    8    9   10            │
+│                     Количество камер                            │
 │                                                                 │
-│  Примечание: FPS снижается линейно с числом камер              │
-│  Рекомендуемое количество: 4-6 камер на типичном ПК            │
+│  Примечание: FPS снижается линейно с числом камер               │
+│  Рекомендуемое количество: 4-6 камер на типичном ПК             │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -1187,14 +1187,14 @@ connect(worker, &CameraWorker::frameReady,
 
 ### Примененные паттерны
 
-| Паттерн | Применение |
-|---------|------------|
-| Producer-CameraWorker | RTSP поток → Кадры |
-| Observer | Signals/Slots |
-| Strategy | ImageQualityAnalyzer |
-| Factory | Создание CameraWorker |
+| Паттерн               | Применение            |
+|-----------------------|-----------------------|
+| Producer-CameraWorker | RTSP поток → Кадры    |
+| Observer              | Signals/Slots         |
+| Strategy              | ImageQualityAnalyzer  |
+| Factory               | Создание CameraWorker |
 
 ---
 
-**Версия документации:** 1.0  
-**Дата:** 2024
+**Версия документации:** 0.0.1  
+**Дата:** 2026
