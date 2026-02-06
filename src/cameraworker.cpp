@@ -41,8 +41,8 @@ void CameraWorker::startCapture()
     }
 
     m_frameTimer->start(FRAME_INTERVAL_MS);
-    emit connectionStatusChanged(true, "Connected to " + m_rtspUrl);
-    qInfo() << "Started capture for" << m_rtspUrl;
+    emit connectionStatusChanged(true, "Подключено к " + m_rtspUrl);
+    qInfo() << "Запускаю видеопоток" << m_rtspUrl;
 }
 
 void CameraWorker::stopCapture()
@@ -56,8 +56,8 @@ void CameraWorker::stopCapture()
     m_connected.store(false);
     cleanupCapture();
 
-    emit connectionStatusChanged(false, "Disconnected from " + m_rtspUrl);
-    qInfo() << "Stopped capture for" << m_rtspUrl;
+    emit connectionStatusChanged(false, "Отключено от " + m_rtspUrl);
+    qInfo() << "Останавливаю видеопоток" << m_rtspUrl;
 }
 
 bool CameraWorker::initializeCapture()
@@ -65,7 +65,7 @@ bool CameraWorker::initializeCapture()
     m_videoCapture.open(m_rtspUrl.toStdString(), cv::CAP_FFMPEG);
     
     if (!m_videoCapture.isOpened()) {
-        qWarning() << "Failed to open RTSP stream:" << m_rtspUrl;
+        qWarning() << "Не могу открыть RTSP поток:" << m_rtspUrl;
         return false;
     }
     
